@@ -5,9 +5,12 @@ using System.Text;
 namespace OOP_TAR_25
 {
     // Õpetaja pärib klassist Isik (koolon tähistab pärimist)
-    public class Õpetaja : Isik
+    public class Õpetaja : Isik, ITööline
     {
         public string Aine { get; set; }
+        public double Tunnitasu { get; set; }
+        public int Tunnidkuus { get; set; }
+        public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Palk; // Õpetaja puhul on väljamakse tüüp alati palk
 
         public void Õpeta()
         {
@@ -17,6 +20,11 @@ namespace OOP_TAR_25
         public override void Kirjelda()
         {
             Console.WriteLine($"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.");
+        }
+        // ITööline liidese meetodi realiseerimine
+        public double ArvutaPalk()
+        {
+            return Tunnitasu * Tunnidkuus;// Palk arvutatakse tunnitasu ja töötatud tundide korrutisena
         }
     }
 }

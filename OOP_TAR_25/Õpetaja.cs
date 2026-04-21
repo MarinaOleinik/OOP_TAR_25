@@ -22,9 +22,14 @@ namespace OOP_TAR_25
             Console.WriteLine($"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.");
         }
         // ITööline liidese meetodi realiseerimine
-        public double ArvutaPalk()
+        public virtual double ArvutaPalk()
         {
             return Tunnitasu * Tunnidkuus;// Palk arvutatakse tunnitasu ja töötatud tundide korrutisena
+        }
+        // IHindaja liidese rakendamine
+        public void Hinda(string hinne)
+        {
+            Console.WriteLine($"Õpetaja {Nimi} pani hindeks: {hinne}");
         }
     }
 }

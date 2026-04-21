@@ -88,4 +88,5 @@ foreach (ITööline isik in palgasaajad)
 }
 
 minuKool.KuvaKõik();
+minuKool.OtsiNimeJärgi("Mati"); // Näiteks otsime kõiki, kelle nimedes on täht "a"
 Console.ReadLine();

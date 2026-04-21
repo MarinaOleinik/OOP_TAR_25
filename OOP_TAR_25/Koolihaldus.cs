@@ -24,5 +24,27 @@ namespace OOP_TAR_25
                 isik.Kirjelda();
             }
         }
+        public void OtsiNimeJärgi(string otsitavNimi)
+        {
+            Console.WriteLine($"\n--- OTSINGU TULEMUSED (päring: '{otsitavNimi}') ---");
+            bool leitud = false;
+
+            foreach (var isik in inimesed)
+            {
+                // Kasutame meetodit Contains(), et leida nimesid, mis sisaldavad otsitavat osa.
+                // StringComparison.OrdinalIgnoreCase muudab otsingu tõstutundetuks (suured/väikesed tähed ei loe).
+                if (isik.Nimi.Contains(otsitavNimi, StringComparison.OrdinalIgnoreCase))
+                {
+                    isik.Kirjelda();
+                    Console.WriteLine("-------------------");
+                    leitud = true;
+                }
+            }
+
+            if (!leitud)
+            {
+                Console.WriteLine("Ühtegi isikut sellise nimega ei leitud.");
+            }
+        }
     }
 }

@@ -21,13 +21,27 @@ namespace OOP_TAR_25
         public bool KasOnSotsTõend { get; set; } = false; //eritoetus 120eur
         public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Toetus; // Õpilase puhul on väljamakse tüüp alati toetus
         public Õppevorm Staatus { get; set; } = Õppevorm.Päevane; // Kasutame enumi andmetüübina
+        
+        public Õpilane() : base() // Kutsume baasklassi konstruktorit
+        {
+            // Siin saame teha täiendavaid initsialiseerimisi, kui vaja
+        }
+        public Õpilane(string nimi, string kool, int klass, Õppevorm staatus) : base(nimi)
+        {
+            Nimi= nimi;
+            Kool = kool;
+            Klass = klass;
+            Staatus = staatus;
+
+        }
+
         public void Õpi()
         {
             Console.WriteLine($"{Nimi} õpib {Kool} {Klass}. klassis. Vorm: {Staatus}");
         }
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
-            Console.WriteLine($"Mina olen õpilane {Nimi} ja käin {Klass}. klassis. Vorm: {Staatus}");
+            return $"Mina olen õpilane {Nimi} ja käin {Klass}. klassis. Vorm: {Staatus}";
         }
 
         public double ArvutaPalk()

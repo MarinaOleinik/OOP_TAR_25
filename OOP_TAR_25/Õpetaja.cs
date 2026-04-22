@@ -12,14 +12,24 @@ namespace OOP_TAR_25
         public int Tunnidkuus { get; set; }
         public TööTüüp VäljamakseTüüp { get; set; } = TööTüüp.Palk; // Õpetaja puhul on väljamakse tüüp alati palk
 
+        public Õpetaja() : base() // Kutsume baasklassi konstruktorit
+        {
+            // Siin saame teha täiendavaid initsialiseerimisi, kui vaja
+        }
+        public Õpetaja(string nimi, string aine, double tunnitasu) : base(nimi)
+        {
+            Nimi = nimi;
+            Aine = aine;
+            Tunnitasu = tunnitasu;
+        }
         public void Õpeta()
         {
             Console.WriteLine($"{Nimi} õpetab ainet: {Aine}.");
         }
         // override kirjutab abstraktse meetodi üle
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
-            Console.WriteLine($"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.");
+            return $"Mina olen õpetaja {Nimi} ja ma õpetan: {Aine}.";
         }
         // ITööline liidese meetodi realiseerimine
         public virtual double ArvutaPalk()

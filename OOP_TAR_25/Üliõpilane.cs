@@ -17,12 +17,12 @@ namespace OOP_TAR_25
         }*/
 
         // Meetodi Kirjelda() ülekirjutamine
-        public override void Kirjelda()
+        public override string Kirjelda()
         {
             // Kutsume ülemklassi meetodi, et kuvada nimi, klass ja õppevorm
-            base.Kirjelda();
+            var baseDescription = base.Kirjelda();
             // Lisame juurde eriala info
-            Console.WriteLine($"Eriala: {Eriala}");
+            return $"{baseDescription}\nEriala: {Eriala}";
         }
     }
 }

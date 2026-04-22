@@ -9,7 +9,21 @@ namespace OOP_TAR_25
 
         // Avalik omadus (Property) automaatse get/set logikaga
         public string Nimi { get; set; }
+        public static int InimesteKoguarv = 0;
+        
 
+        public Isik(string nimi) 
+        { 
+            Nimi = nimi;
+            // Iga kord, kui luuakse uus isik (käivitub konstruktor), suurendame loendurit
+            InimesteKoguarv++;
+        }
+
+        protected Isik()
+        {
+            // Iga kord, kui luuakse uus isik (käivitub konstruktor), suurendame loendurit
+            InimesteKoguarv++;
+        }
         // Kontrollitud omadus
         public int Sünniaasta
         {
@@ -37,7 +51,7 @@ namespace OOP_TAR_25
                 Console.WriteLine($"Tere! Mina olen {Nimi} ja ma olen {Vanus} aastat vana. Olen sündinud {Sünniaasta} aastal.");
         }
         // Abstraktne meetod – sisu puudub, alamklassid PEAVAD selle ise looma
-        public abstract void Kirjelda();
+        public abstract string Kirjelda();
 
     }
 }

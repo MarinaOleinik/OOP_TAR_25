@@ -46,6 +46,11 @@ mati.KeskmineHinne = 4.0;
 minuKool.LisaInimene(mati);
 Õpilane kadi = new Õpilane { Nimi = "Kadi", Klass = 11, Kool = "Kutsehariduskeskus", KeskmineHinne = 3.5, Puudumised = 5, KasOnSotsTõend = false };
 Õpilane jüri = new Õpilane { Nimi = "Jüri", Klass = 12, Kool = "Kutsehariduskeskus", KeskmineHinne = 4.5, Puudumised = 35, KasOnSotsTõend = true };
+Õpilane olga = new Õpilane("Olga", "TTHK", 9, Õppevorm.Ekstern);
+
+minuKool.LisaInimene(olga);
+minuKool.Otsi("Olga"); 
+minuKool.Otsi(2008); // Otsime kõiki, kes on sündinud aastal 2008
 
 Õpetaja anna = new Õpetaja { Nimi = "Anna", Aine = "Python", Tunnitasu = 20, Tunnidkuus = 80 };
 Õpetaja peeter = new Õpetaja { Nimi = "Peeter", Aine = "C#", Tunnitasu = 25, Tunnidkuus = 60 };
@@ -89,4 +94,8 @@ foreach (ITööline isik in palgasaajad)
 
 minuKool.KuvaKõik();
 minuKool.OtsiNimeJärgi("Mati"); // Näiteks otsime kõiki, kelle nimedes on täht "a"
+
+Console.WriteLine($"Kokku on: {Isik.InimesteKoguarv} isikut"); // Väljund: 5 (või rohkem, sõltuvalt sellest, kui palju isikuid oleme loonud)
+minuKool.SalvestaFaili("kooli_andmed.txt");
+
 Console.ReadLine();
